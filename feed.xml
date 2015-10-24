@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Miro Michalicka</title>
+    <description>Write your site description here. It will be used as your sites meta description as well!</description>
+    <link>http://yourdomain.com/</link>
+    <atom:link href="http://yourdomain.com/feed.xml" rel="self" type="application/rss+xml" />
+    <pubDate>Fri, 23 Oct 2015 22:29:14 +0200</pubDate>
+    <lastBuildDate>Fri, 23 Oct 2015 22:29:14 +0200</lastBuildDate>
+    <generator>Jekyll v2.4.0</generator>
+    
+      <item>
+        <title>How was DrupalCampCS 2015?</title>
+        <description>&lt;p&gt;The 5th -7th June, 2015 was the date forDrupalCampCS in Bratislava, Slovakia for three days of knowledge sharing, coding and ‘downloading’ (in the local pubs).&lt;/p&gt;
+
+&lt;p&gt;Whenever iKOS get involved with a DrupalCamp in the UK we like to contribute fully by way of organising, sponsoring, speaking and training. As we have  recently opened two offices in Slovakia, we saw DrupalCampCS as a great opportunity to get better acquainted with the Slovakian and Czech Drupal communities. &lt;/p&gt;
+
+&lt;h3 id=&quot;drupalcamp-cs-day-one---5th-june&quot;&gt;DrupalCamp CS DAY ONE - 5th June&lt;/h3&gt;
+&lt;p&gt;DrupalCampCS began on Friday morning with Drupal training and sprints planned.  &lt;/p&gt;
+
+&lt;h4 id=&quot;drupal-training-for-beginners---streamed-live-from-london&quot;&gt;Drupal Training for Beginners - Streamed live from London&lt;/h4&gt;
+&lt;p&gt;The first Drupal training session was aimed at attendees new to Drupal and, thanks to the University’s technical department, we had our head of training - Nick Abbott - streaming his Drupal training course live from London. This remote training worked really well thanks to Milan Lukac from Slovakia, in the room to help any attendees with translation or technical questions.  &lt;/p&gt;
+
+&lt;h4 id=&quot;drupal-commerce-training&quot;&gt;Drupal Commerce Training&lt;/h4&gt;
+&lt;p&gt;Having worked as part of the team to deliver one of the highest profile Drupal Commerce websites for Lush (www.lush.co.uk), Karol Kasas was able to provide real-world insight and training on the correct usage of Drupal Commerce. To a workshop of 10 attendees, Karol covered both the complete basics of Drupal Commerce through to advanced topics such as VAT handling. By the end of day, people left his workshop with a fully functional eCommerce built with Drupal Commerce - WOW!   &lt;/p&gt;
+
+&lt;h4 id=&quot;sprinting---drupal-8-rules&quot;&gt;Sprinting - Drupal 8 Rules!&lt;/h4&gt;
+&lt;p&gt;Fresh from a day of training, both Milan and Karol joined the sprinting room, where a small team had come together looking at the Drupal 8 Rules issue queue. &lt;/p&gt;
+
+&lt;h4 id=&quot;friday-night---traditional-slovak-pub&quot;&gt;Friday night - traditional Slovak pub&lt;/h4&gt;
+&lt;p&gt;In the evening most headed to a fantastic local brewery called Richtar Jakub (Mayor Jacob), where they met with Drupal superstars Robert Douglass and our technical team leader Richard Jones. Everyone tasted locally brewed beer and some traditional Slovak meat dishes. After this, people headed to Bratislava restaurant, where they tasted some very traditional Slovak food called “bryndzove halusky” (small potato dumplings with cottage cheese).&lt;/p&gt;
+
+&lt;h3 id=&quot;day-two---6th-june&quot;&gt;DAY TWO - 6th June&lt;/h3&gt;
+
+&lt;p&gt;Saturday began with session called State of Drupal. During this session the chairman of Slovak Drupal Association, Jozef Toth, asked Richard Jones about his beginnings and thoughts relating to Drupal in general and the impact of the delayed release of Drupal8.&lt;/p&gt;
+
+&lt;p&gt;During the day all members of our Slovak team attended interesting sessions held by experts from far and wide. Tomas and Oliver focussed on learning more about the theming layer in Drupal 8 using Twig, while the rest of the team joined session called OCD Deployment, where they learned how to make updates faster and less risky. &lt;/p&gt;
+
+&lt;h4 id=&quot;lush---drupal-commerce-case-study&quot;&gt;Lush - Drupal Commerce case study&lt;/h4&gt;
+
+&lt;p&gt;As technical director of iKOS, Richard Jones was able to talk about our experience of building one of the largest Drupal Commerce responsive websites for the UK, headquartered retailer, Lush. &lt;/p&gt;
+
+&lt;h4 id=&quot;drupal-performance&quot;&gt;Drupal Performance&lt;/h4&gt;
+&lt;p&gt;Following on from Richard’s talk, Milan Lukac opened up the topic of Drupal performance. Milan started with basic Drupal’s built-in possibilities before expanding and explaining the benefits and pitfalls of using various contributed modules.&lt;/p&gt;
+
+&lt;h4 id=&quot;the-core-message-from-day-two&quot;&gt;The core message from day two&lt;/h4&gt;
+&lt;p&gt;For me the takeaway and most important lesson learned related to the changes in Drupal 8 relating to the entity API from our guest speaker Wolfgang Ziegler (fago in the Drupal community).&lt;/p&gt;
+
+&lt;h4 id=&quot;ice-ice-baby&quot;&gt;Ice ice baby&lt;/h4&gt;
+&lt;p&gt;After a day of hot sessions we headed to cool off and experience the amazing ice bar.  &lt;/p&gt;
+
+&lt;h3 id=&quot;day-3---7th-june&quot;&gt;Day 3 - 7th June&lt;/h3&gt;
+&lt;p&gt;The last day of camp kicked off with Karol and Milan teaching developers how to use Drupal Services for developers who want to build their own APIs to extend and integrate with Drupal. Milan and Karol did pretty amazing job as they showed not only how to use in-build Services, but also how to code their own service. &lt;/p&gt;
+
+&lt;h4 id=&quot;after-the-camp&quot;&gt;After the camp&lt;/h4&gt;
+&lt;p&gt;We are also pleased to announces that iKOS Digital has accepted the challenge to help the #d8rules team to finish Milestone 1 in this important project. Within a week of DrupalCampCS Karol got his first commit into Rules 8.x &lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Originally published on: &lt;a href=&quot;http://i-kos.com/developing/blog/2015-08-11/drupalcampcs-2015-bratislava-our-report-great-drupal-community-event&quot;&gt;http://i-kos.com/developing/blog/2015-08-11/drupalcampcs-2015-bratislava-our-report-great-drupal-community-event&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+</description>
+        <pubDate>Mon, 07 Sep 2015 14:00:00 +0200</pubDate>
+        <link>http://yourdomain.com/2015/09/07/how-was-dccs-2015/</link>
+        <guid isPermaLink="true">http://yourdomain.com/2015/09/07/how-was-dccs-2015/</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>Drupalaton 2015</title>
+        <description>&lt;p&gt;The middle of summer is for a lot of Drupalists in Europe connected with Drupalcamp organised on shores of lake Balaton - Drupalaton. This year it was my 2nd time I attended this conference., first time as part of iKOS. For me personally, Drupalaton is one of the best Drupal-related conferences, I have ever attended. Do you want to know why? Read following report.&lt;/p&gt;
+
+&lt;h3 id=&quot;water--drupal--drupalaton&quot;&gt;Water + Drupal = Drupalaton&lt;/h3&gt;
+&lt;p&gt;Drupalaton is organised in lovely Hungarian city of Keszthely. This city lies on bank of lake Balaton, one of the biggest drinking water lake in Europe. Therefore Drupalaton offers right amount of fun, bathing and Drupal. What else can Drupalist want?&lt;/p&gt;
+
+&lt;h3 id=&quot;look-to-the-future-starting&quot;&gt;Look to the future starting&lt;/h3&gt;
+&lt;p&gt;This year the conference started on Thursday morning with sprinting on Drupal 8 issues. I picked one, which has provided me a lot of fun for all conference days. For those, who has never attended any sprints, they usually consist of a lot of googling and talking with sprint mentors. My issue has involved changes in comment type form and changes in related configuration schemas. &lt;/p&gt;
+
+&lt;p&gt;After lunch break organisers welcomed us at conference and provided a little place for sponsors. Right after, the first speaker, Márk Kiss, presented differences in Form API of Drupal 7, Symfony2 framework and Drupal 8. For me, it is very sad that Form API in D8 has changed little from Drupal 7. I hope we can find a way how to use nice OO forms from Symfony2.&lt;/p&gt;
+
+&lt;p&gt;The second speaker, Gergely Pap, was presenting topic which should have been more interesting for my FE oriented colleagues. He was talking about his FE experiences from his first client Drupal 8 site. The more I work with D8, the more I see that FE has undertaken major changes since D7. I like the way how is easy to marry it with the newest technologies in this part of web development. As was mentioned also in the session, it still doesn’t offer enough flexibility, so non-Drupal FE developer will be fighting with it a lot. I admire speaker that he released his base theme for D8 in this stage when especially theming layer in D8 is pretty unstable. &lt;/p&gt;
+
+&lt;p&gt;The last session of the first day was business oriented. The founders of Hungarian Drupal-oriented company Cheppers were talking about their growth and motivation for running successful Drupal shop. It offered me also some insight into Hungarian Drupal community which obviously shares a lot of similarities with the Slovak one.&lt;/p&gt;
+
+&lt;p&gt;In the evening I submitted first version of the patch. It failed. Dammit!&lt;/p&gt;
+
+&lt;h3 id=&quot;speeding-up&quot;&gt;Speeding up&lt;/h3&gt;
+&lt;p&gt;The second day there were two tracks. I started with the main room where one of the biggest minds of Drupal world chx had his session. It was very important for every developer in D8, because it was about storing data in D8. The most important thing to remember from it - variables are dead, configuration live long and prosper. Everything else is on D.o.&lt;/p&gt;
+
+&lt;p&gt;The second session was very closely related to previous one as it was about Configuration management. As title says, the session was about workflow with configuration files in D8. It showed that all that glitters is not gold. I think that D8 Features will take solid place in our development processes for a very long time.&lt;/p&gt;
+
+&lt;p&gt;The last session of that day was held by fabulous Gabor Hojtsy. He showed how to use Drupal 8 in its current state without any contrib modules with focus on multilingual sites. It was probably the best sum up of D8 abilities and new features I’ve ever seen. And it was everything working live!&lt;/p&gt;
+
+&lt;p&gt;Between session I was working on fixing of my issue. I had problems with translation of my new configuration, so I talked with Ruben and with joint forces we found solution - for everything related to translations, look on Gabor’s website. There were also suggestions for another solution, but after consultation with Gabor we decided to stick to original solution.&lt;/p&gt;
+
+&lt;p&gt;The Friday evening was the first of social events. It was boat party. We took 100-years old boat Helka, which showed us another sight of Balaton. Organisers also prepared for us small bufet of Hungarian specialities - perkelt with noodles and Hortobany palacsinka.&lt;/p&gt;
+
+&lt;h3 id=&quot;behold---drupal-8&quot;&gt;Behold - Drupal 8&lt;/h3&gt;
+&lt;p&gt;The last day of sessions started by session by Xano about Plugin API in D8. Plugin API is one of the most interesting and important APIs in D8, because it is used for almost everything. Xano went through its cons and pros and showed us the most basic usage as custom block. If you install the Plugin module, you can see all modules defining their own plugins.&lt;/p&gt;
+
+&lt;p&gt;The last session of Drupalaton 2015 was about prototyping in Drupal. It was divided into 2 parts. The first was showing pros and cons of using Drupal as prototyping tool. Speaker Kristoff van Tomme has some experiences with building startup based on Drupal and he tried to explain its advantages over probably the most spread prototyping tool Wordpress. The second part was held by László Csécsy who has real project experience with prototyping with Drupal. As he said, they are really close to release their project, they are still creating only prototypes, but he is not worried about successful delivery of the project. As he revealed, prototyping helped them to fulfil expectations of extremely hard-to-satisfy client. The very helpful was discussion after sessions where both speakers were showing their high professional attitude.&lt;/p&gt;
+
+&lt;p&gt;Between session and during lunch break I was still working on D8 issues. I finally submitted patch which was accepted by testbot and also community. I picked another one issue which is related to path alias generation. I submitted patch which was accepted by testbot, but it will require another manual testing and maybe new automated tests because it is important part of Drupal core.&lt;/p&gt;
+
+&lt;p&gt;The last day of Drupalaton was all-day sprint. I was sprinting in the morning on some other issues and afternoon I made little trip to Balaton neighbourhood.&lt;/p&gt;
+
+&lt;p&gt;In the end of event, I can say, that I’ve learned a lot of new things and I’ve spoken with many wise people. It is nice to see community working together to solve remaining issues in Drupal 8. It will be great tool changing clear water of CMS world. I am looking forward to trying it in my first client project.&lt;/p&gt;
+</description>
+        <pubDate>Tue, 11 Aug 2015 00:00:00 +0200</pubDate>
+        <link>http://yourdomain.com/2015/08/11/drupalaton-2015/</link>
+        <guid isPermaLink="true">http://yourdomain.com/2015/08/11/drupalaton-2015/</guid>
+        
+        
+      </item>
+    
+  </channel>
+</rss>
