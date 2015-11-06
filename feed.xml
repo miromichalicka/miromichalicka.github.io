@@ -2,12 +2,64 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Miro Michalicka</title>
-    <description>Write your site description here. It will be used as your sites meta description as well!</description>
+    <description>Drupal and travelling</description>
     <link>http://yourdomain.com/</link>
     <atom:link href="http://yourdomain.com/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Fri, 23 Oct 2015 22:29:14 +0200</pubDate>
-    <lastBuildDate>Fri, 23 Oct 2015 22:29:14 +0200</lastBuildDate>
-    <generator>Jekyll v2.4.0</generator>
+    <pubDate>Fri, 06 Nov 2015 23:36:38 +0100</pubDate>
+    <lastBuildDate>Fri, 06 Nov 2015 23:36:38 +0100</lastBuildDate>
+    <generator>Jekyll v3.0.0</generator>
+    
+      <item>
+        <title>Configuration management in Drupal 8</title>
+        <description>&lt;p&gt;&lt;em&gt;Disclaimer: This blog represents personal opinions of author, which don’t have to be same as opinions of iKOS and the rest of its development team.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Configuration management is probably one of the most expected new features in Drupal 8. Will the CMI be salvation for developers and site builders or will we still stick with Features and/or many contrib modules for such important part of site building?&lt;/p&gt;
+
+&lt;p&gt;I’ve been playing with Drupal 8 since I was able to install it without failure (alpha-3 probably) and I have several D8 sites in production or in process of building. Lately, I’m also part of iKOS Drupal8 Initiative, where part of team spent great amount of time figuring out the best way how to work with Drupal 8 configuration files.&lt;/p&gt;
+
+&lt;h3 id=&quot;drupal-7-current-state&quot;&gt;Drupal 7 current state&lt;/h3&gt;
+&lt;p&gt;I’ve decided to add this part because configuration and deployment workflow is for a lot of Drupal developers in Slovakia very unknown term :) I must admit, I also never paid much attention to this part of Drupal while I was developing on my own. With more serious jobs and joining large teams of developers I found this very important part of developer’s life (unfortunately).&lt;/p&gt;
+
+&lt;p&gt;There is no standardized way how to store configuration in Drupal 7. And it’s the biggest problem. You find one module storing it in &lt;code&gt;variables&lt;/code&gt; table, another module defines its own structure.&lt;/p&gt;
+
+&lt;p&gt;One of possible ways how to export your configuration is &lt;code&gt;Features&lt;/code&gt; module. This module digs (almost) all core configuration for you and exports it into “custom” modules. When you enable this module, configuration is imported back into your database where it lives its own unchained life. &lt;/p&gt;
+
+&lt;p&gt;What about contrib modules? Well, if you are lucky module is using variables or module creator implemented integration with features. If you are not lucky, you are forced to write your own features integration (yey, you can contribute it) or you have to call module’s “API” and create all your configuration in some custom module. Very comfortable for site builders, isn’t it? &lt;/p&gt;
+
+&lt;p&gt;And I forgot to mention parts about “Overridden” screen…&lt;/p&gt;
+
+&lt;h3 id=&quot;drupal-8-cmi&quot;&gt;Drupal 8 CMI&lt;/h3&gt;
+
+&lt;p&gt;CMI or configuration management initiative is one of the most important parts of Drupal 8. It finally standardized way, how configuration should be stored. It introduced Configuration Entities with their schemas and other cool things. And it also offers exports and imports in core. Everything looks like miracle until you start really working with it.&lt;/p&gt;
+
+&lt;p&gt;CMI exports configuration into YAML files. YAML is cool file format similar to XML. It does support schemas and schema validations, but nobody is using that. And Git totally loves tones of plaintext files. Just try to resolve conflicts in them :)&lt;/p&gt;
+
+&lt;p&gt;You have your configuration in YAML files in your GIT repository (you also resolved all conflicts) and your colleagues want to preview your work or continue working on some of your projects. Easy-peasy you think? So try import your config on their fresh installations. You see that error too, don’t you? After several hours you finally defeat UUID generator with copying &lt;code&gt;system.site.uuid&lt;/code&gt; from your site to their (one possible way). Now it should finally work :)&lt;/p&gt;
+
+&lt;p&gt;Did you have some custom blocks placed on your site? Do you like their new content? They consist of 2 configurations - &lt;code&gt;block&lt;/code&gt; and &lt;code&gt;block content&lt;/code&gt;. As you can see &lt;code&gt;block content&lt;/code&gt; is content, so it is not exported with CMI:( You have to give up ability to edit your block content on web or use Deploy module or some paid service.&lt;/p&gt;
+
+&lt;h3 id=&quot;drupal-8-features&quot;&gt;Drupal 8 Features&lt;/h3&gt;
+
+&lt;p&gt;You want to change some configuration for your stage environment and you are trying to find out which one it should be. It probably has some dependencies. &lt;/p&gt;
+
+&lt;p&gt;Probably the best way without learning all these dependencies is to use some configuration grouping modules. This exact thing you are able to do with Features in Drupal 8. It also offers you some kind of automation, so it automatically bundles your configuration by content types, views or other config you choose.&lt;/p&gt;
+
+&lt;p&gt;Important thing is that you don’t need Features module on your production site as it really just export configuration and import it on your module enabling. Well, it also does some dev-env useful things, but nothing suitable for production.&lt;/p&gt;
+
+&lt;h3 id=&quot;config-devel&quot;&gt;Config Devel&lt;/h3&gt;
+
+&lt;p&gt;If you don’t want automatic grouping and you are little more skilled, you can use &lt;code&gt;config_devel&lt;/code&gt; module. It little automates creating of modules, but you really need to know, what you want to export.&lt;/p&gt;
+
+&lt;h3 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h3&gt;
+
+&lt;p&gt;In iKOS we decided to carry on with core CMI for now. I’m personally playing with ideas of using Config Devel or Features. I’m sad that CMI fulfilled just half of developers needs. It doesn’t help with work in team unless you make some compromises or “hacks”. It does great job with multi-environment development of same site. I hope missing features will be added in early life phases of Drupal 8.&lt;/p&gt;
+</description>
+        <pubDate>Fri, 06 Nov 2015 11:00:00 +0100</pubDate>
+        <link>http://yourdomain.com/2015/11/06/configuration-d8/</link>
+        <guid isPermaLink="true">http://yourdomain.com/2015/11/06/configuration-d8/</guid>
+        
+        
+      </item>
     
       <item>
         <title>How was DrupalCampCS 2015?</title>

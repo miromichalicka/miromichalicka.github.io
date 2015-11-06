@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Drupal and travelling">
+
+    <title>Configuration management in Drupal 8 - Miro Michalicka</title>
+
+    <link rel="canonical" href="http://yourdomain.com/2015/11/06/configuration-d8/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/clean-blog.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/css/syntax.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+
+<body>
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Miro Michalicka</a>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+
+
+    <!-- Post Header -->
+<header class="intro-header" style="background-image: url('/img/post-bg-01.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>Configuration management in Drupal 8</h1>
+                    
+                    <h2 class="subheading">hottest Drupal 8 feature in real life</h2>
+                    
+                    <span class="meta">Posted on November 6, 2015</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+				<p><em>Disclaimer: This blog represents personal opinions of author, which don’t have to be same as opinions of iKOS and the rest of its development team.</em></p>
+
+<p>Configuration management is probably one of the most expected new features in Drupal 8. Will the CMI be salvation for developers and site builders or will we still stick with Features and/or many contrib modules for such important part of site building?</p>
+
+<p>I’ve been playing with Drupal 8 since I was able to install it without failure (alpha-3 probably) and I have several D8 sites in production or in process of building. Lately, I’m also part of iKOS Drupal8 Initiative, where part of team spent great amount of time figuring out the best way how to work with Drupal 8 configuration files.</p>
+
+<h3 id="drupal-7-current-state">Drupal 7 current state</h3>
+<p>I’ve decided to add this part because configuration and deployment workflow is for a lot of Drupal developers in Slovakia very unknown term :) I must admit, I also never paid much attention to this part of Drupal while I was developing on my own. With more serious jobs and joining large teams of developers I found this very important part of developer’s life (unfortunately).</p>
+
+<p>There is no standardized way how to store configuration in Drupal 7. And it’s the biggest problem. You find one module storing it in <code>variables</code> table, another module defines its own structure.</p>
+
+<p>One of possible ways how to export your configuration is <code>Features</code> module. This module digs (almost) all core configuration for you and exports it into “custom” modules. When you enable this module, configuration is imported back into your database where it lives its own unchained life. </p>
+
+<p>What about contrib modules? Well, if you are lucky module is using variables or module creator implemented integration with features. If you are not lucky, you are forced to write your own features integration (yey, you can contribute it) or you have to call module’s “API” and create all your configuration in some custom module. Very comfortable for site builders, isn’t it? </p>
+
+<p>And I forgot to mention parts about “Overridden” screen…</p>
+
+<h3 id="drupal-8-cmi">Drupal 8 CMI</h3>
+
+<p>CMI or configuration management initiative is one of the most important parts of Drupal 8. It finally standardized way, how configuration should be stored. It introduced Configuration Entities with their schemas and other cool things. And it also offers exports and imports in core. Everything looks like miracle until you start really working with it.</p>
+
+<p>CMI exports configuration into YAML files. YAML is cool file format similar to XML. It does support schemas and schema validations, but nobody is using that. And Git totally loves tones of plaintext files. Just try to resolve conflicts in them :)</p>
+
+<p>You have your configuration in YAML files in your GIT repository (you also resolved all conflicts) and your colleagues want to preview your work or continue working on some of your projects. Easy-peasy you think? So try import your config on their fresh installations. You see that error too, don’t you? After several hours you finally defeat UUID generator with copying <code>system.site.uuid</code> from your site to their (one possible way). Now it should finally work :)</p>
+
+<p>Did you have some custom blocks placed on your site? Do you like their new content? They consist of 2 configurations - <code>block</code> and <code>block content</code>. As you can see <code>block content</code> is content, so it is not exported with CMI:( You have to give up ability to edit your block content on web or use Deploy module or some paid service.</p>
+
+<h3 id="drupal-8-features">Drupal 8 Features</h3>
+
+<p>You want to change some configuration for your stage environment and you are trying to find out which one it should be. It probably has some dependencies. </p>
+
+<p>Probably the best way without learning all these dependencies is to use some configuration grouping modules. This exact thing you are able to do with Features in Drupal 8. It also offers you some kind of automation, so it automatically bundles your configuration by content types, views or other config you choose.</p>
+
+<p>Important thing is that you don’t need Features module on your production site as it really just export configuration and import it on your module enabling. Well, it also does some dev-env useful things, but nothing suitable for production.</p>
+
+<h3 id="config-devel">Config Devel</h3>
+
+<p>If you don’t want automatic grouping and you are little more skilled, you can use <code>config_devel</code> module. It little automates creating of modules, but you really need to know, what you want to export.</p>
+
+<h3 id="conclusion">Conclusion</h3>
+
+<p>In iKOS we decided to carry on with core CMI for now. I’m personally playing with ideas of using Config Devel or Features. I’m sad that CMI fulfilled just half of developers needs. It doesn’t help with work in team unless you make some compromises or “hacks”. It does great job with multi-environment development of same site. I hope missing features will be added in early life phases of Drupal 8.</p>
+
+
+                <hr>
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/2015/09/07/how-was-dccs-2015/" data-toggle="tooltip" data-placement="top" title="How was DrupalCampCS 2015?">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                </ul>
+
+            </div>
+        </div>
+    </div>
+</article>
+
+<hr>
+
+
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    <li>
+                        <a href="/feed.xml">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://twitter.com/miromichalicka">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    <li>
+                        <a href="https://github.com/miromichalicka">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://sk.linkedin.com/in/michalicka">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js "></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js "></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/clean-blog.min.js "></script>
+
+
+</body>
+
+</html>
