@@ -8,9 +8,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Drupal and travelling">
 
-    <title>Miro Michalicka</title>
+    <title>Twig inside Views in Drupal 8 - Miro Michalicka</title>
 
-    <link rel="canonical" href="http://yourdomain.com/">
+    <link rel="canonical" href="http://yourdomain.com/2015/12/07/views-twig/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -56,86 +56,78 @@
 </nav>
 
 
-    <!-- Page Header -->
-<header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
+    <!-- Post Header -->
+<header class="intro-header" style="background-image: url('/img/post-bg-07.png')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="site-heading">
-                    <h1>Miro Michalicka</h1>
-                    <hr class="small">
-                    <span class="subheading">Drupal and travelling</span>
+                <div class="post-heading">
+                    <h1>Twig inside Views in Drupal 8</h1>
+                    
+                    <h2 class="subheading">frontend for sitebuilders</h2>
+                    
+                    <span class="meta">Posted on December 7, 2015</span>
                 </div>
             </div>
         </div>
     </div>
 </header>
 
-<!-- Main Content -->
-<div class="container">
-	<div class="row">
-		<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-			
-<div class="post-preview">
-    <a href="/2015/12/07/views-twig/">
-        <h2 class="post-title">            Twig inside Views in Drupal 8
-        </h2>
-        
-        <h3 class="post-subtitle">
-            frontend for sitebuilders
-        </h3>
-        
-    </a>
-    <p class="post-meta">Posted on December 7, 2015</p>
-</div>
-<hr>
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 
-<div class="post-preview">
-    <a href="/2015/11/06/configuration-d8/">
-        <h2 class="post-title">            Configuration management in Drupal 8
-        </h2>
-        
-        <h3 class="post-subtitle">
-            hottest Drupal 8 feature in real life
-        </h3>
-        
-    </a>
-    <p class="post-meta">Posted on November 6, 2015</p>
-</div>
-<hr>
+				<p>Drupal 8 brings us except Symfony in backend also Twig for frontenders and Views for sitebuilders. Have you every thought about mixing this two parts of Drupal? In most of cases it is better if frontender knows at least basics of Drupal sitebuilding and Views are one of the most important modules for this.</p>
 
-<div class="post-preview">
-    <a href="/2015/09/07/how-was-dccs-2015/">
-        <h2 class="post-title">            How was DrupalCampCS 2015?
-        </h2>
-        
-        <h3 class="post-subtitle">
-            nations reunited for Drupal
-        </h3>
-        
-    </a>
-    <p class="post-meta">Posted on September 7, 2015</p>
-</div>
-<hr>
+<h3 id="twig">Twig</h3>
+<p>Twig is templating engine which replaced PHPTemplates in Drupal 8. It uses some own functions, filters and syntax which aren’t related to PHP or Javascript and more importantly, it protects you from complexity of Drupal data model. No more thinking if variable is array or object - you access its children the same way. These functions and filters, which modify way how are input variables displayed. Drupal also extends Twig abilities by adding some own functions, mostly related to manipulation with html attributes. More about Twig should be found on <a href="http://twig.sensiolabs.org/">this</a> page and in Drupal <a href="https://www.drupal.org/list-changes">change records</a>.</p>
 
-<div class="post-preview">
-    <a href="/2015/08/11/drupalaton-2015/">
-        <h2 class="post-title">            Drupalaton 2015
-        </h2>
-        
-        <h3 class="post-subtitle">
-            great joy with Drupal and water
-        </h3>
-        
-    </a>
-    <p class="post-meta">Posted on August 11, 2015</p>
-</div>
-<hr>
+<h3 id="views">Views</h3>
+<p>Views is module, which knows probably everyone in Drupal world and honestly I cannot imagine building even simple presentation website without it. It offers you ability to build complex queries and display their results without having any knowledge about databases just through Drupal UI.</p>
+
+<h3 id="using-twig-functions-filters-in-views">Using Twig functions filters in Views</h3>
+<p><strong>Usecase:</strong> You want to display some text all uppercase and you don’t want to do it in CSS.</p>
+
+<p><strong>Drupal 7 solution:</strong> You can create field template with correct name, so it will have an effect only on desired field and inside this field template you will use <code>strtoupper</code> PHP function.</p>
+
+<p><strong>Drupal 8 solution:</strong> You will rewrite field with its own value and use <code>upper</code> Twig filter. It will look this way: 
+<img src="/img/twig1.png" alt="upper Twig filter" /></p>
+
+<h3 id="more-advanced-twig-expressions">More advanced Twig expressions</h3>
+<p><strong>Usecase:</strong> Show content of field conditionally or conditionally show content one of two fields.</p>
+
+<p><strong>Drupal 7 solution:</strong> Preprocessing or some naughty things in templates.</p>
+
+<p><strong>Drupal 8 solution:</strong> Use Twig expressions :)
+<img src="/img/twig2.png" alt="upper Twig filter" /></p>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="lineno">1</span>  {% if field_display_text2==&#39;True&#39; %}
+<span class="lineno">2</span>  {{ field_text2 }}
+<span class="lineno">3</span>  {% else %}
+<span class="lineno">4</span>  {{ field_text1 }}
+<span class="lineno">5</span>  {% endif %}</code></pre></figure>
+
+<h3 id="conclusion">Conclusion</h3>
+<p>Twig makes Frontender’s life easier. I’m not saying that we should do everything possible only through UI, as I see there many risks related to harder debugging. Practical use on projects will show us the best way. </p>
 
 
-		</div>
-	</div>
-</div>
+                <hr>
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/2015/11/06/configuration-d8/" data-toggle="tooltip" data-placement="top" title="Configuration management in Drupal 8">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                </ul>
+
+            </div>
+        </div>
+    </div>
+</article>
 
 <hr>
 

@@ -5,9 +5,51 @@
     <description>Drupal and travelling</description>
     <link>http://yourdomain.com/</link>
     <atom:link href="http://yourdomain.com/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Fri, 06 Nov 2015 23:36:38 +0100</pubDate>
-    <lastBuildDate>Fri, 06 Nov 2015 23:36:38 +0100</lastBuildDate>
+    <pubDate>Tue, 08 Dec 2015 09:45:13 +0100</pubDate>
+    <lastBuildDate>Tue, 08 Dec 2015 09:45:13 +0100</lastBuildDate>
     <generator>Jekyll v3.0.0</generator>
+    
+      <item>
+        <title>Twig inside Views in Drupal 8</title>
+        <description>&lt;p&gt;Drupal 8 brings us except Symfony in backend also Twig for frontenders and Views for sitebuilders. Have you every thought about mixing this two parts of Drupal? In most of cases it is better if frontender knows at least basics of Drupal sitebuilding and Views are one of the most important modules for this.&lt;/p&gt;
+
+&lt;h3 id=&quot;twig&quot;&gt;Twig&lt;/h3&gt;
+&lt;p&gt;Twig is templating engine which replaced PHPTemplates in Drupal 8. It uses some own functions, filters and syntax which aren’t related to PHP or Javascript and more importantly, it protects you from complexity of Drupal data model. No more thinking if variable is array or object - you access its children the same way. These functions and filters, which modify way how are input variables displayed. Drupal also extends Twig abilities by adding some own functions, mostly related to manipulation with html attributes. More about Twig should be found on &lt;a href=&quot;http://twig.sensiolabs.org/&quot;&gt;this&lt;/a&gt; page and in Drupal &lt;a href=&quot;https://www.drupal.org/list-changes&quot;&gt;change records&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;views&quot;&gt;Views&lt;/h3&gt;
+&lt;p&gt;Views is module, which knows probably everyone in Drupal world and honestly I cannot imagine building even simple presentation website without it. It offers you ability to build complex queries and display their results without having any knowledge about databases just through Drupal UI.&lt;/p&gt;
+
+&lt;h3 id=&quot;using-twig-functions-filters-in-views&quot;&gt;Using Twig functions filters in Views&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Usecase:&lt;/strong&gt; You want to display some text all uppercase and you don’t want to do it in CSS.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Drupal 7 solution:&lt;/strong&gt; You can create field template with correct name, so it will have an effect only on desired field and inside this field template you will use &lt;code&gt;strtoupper&lt;/code&gt; PHP function.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Drupal 8 solution:&lt;/strong&gt; You will rewrite field with its own value and use &lt;code&gt;upper&lt;/code&gt; Twig filter. It will look this way: 
+&lt;img src=&quot;/img/twig1.png&quot; alt=&quot;upper Twig filter&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;more-advanced-twig-expressions&quot;&gt;More advanced Twig expressions&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Usecase:&lt;/strong&gt; Show content of field conditionally or conditionally show content one of two fields.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Drupal 7 solution:&lt;/strong&gt; Preprocessing or some naughty things in templates.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Drupal 8 solution:&lt;/strong&gt; Use Twig expressions :)
+&lt;img src=&quot;/img/twig2.png&quot; alt=&quot;upper Twig filter&quot; /&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;&lt;span class=&quot;lineno&quot;&gt;1&lt;/span&gt;  {% if field_display_text2==&amp;#39;True&amp;#39; %}
+&lt;span class=&quot;lineno&quot;&gt;2&lt;/span&gt;  {{ field_text2 }}
+&lt;span class=&quot;lineno&quot;&gt;3&lt;/span&gt;  {% else %}
+&lt;span class=&quot;lineno&quot;&gt;4&lt;/span&gt;  {{ field_text1 }}
+&lt;span class=&quot;lineno&quot;&gt;5&lt;/span&gt;  {% endif %}&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h3 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h3&gt;
+&lt;p&gt;Twig makes Frontender’s life easier. I’m not saying that we should do everything possible only through UI, as I see there many risks related to harder debugging. Practical use on projects will show us the best way. &lt;/p&gt;
+</description>
+        <pubDate>Mon, 07 Dec 2015 08:00:00 +0100</pubDate>
+        <link>http://yourdomain.com/2015/12/07/views-twig/</link>
+        <guid isPermaLink="true">http://yourdomain.com/2015/12/07/views-twig/</guid>
+        
+        
+      </item>
     
       <item>
         <title>Configuration management in Drupal 8</title>
