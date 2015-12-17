@@ -112,37 +112,37 @@
 
 <p>If you install your module now, you can find this block in <a href="http://your-domain.tld/admin/structure/block/block-content/types">Custom block library</a>. You can update all fields which is big change since Drupal 7, but you still need to show your block somewhere on page. Because block are entities, they can be displayed multiple times. You need to create block instance which can be placed into region and visibility settings can be applied. </p>
 
-<figure class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
-
-<span class="k">use</span> <span class="nx">Drupal\block\Entity\Block</span><span class="p">;</span>
-<span class="k">use</span> <span class="nx">Drupal\block_content\Entity\BlockContent</span><span class="p">;</span>
-
-<span class="sd">/**</span>
-<span class="sd"> * Implements hook_install().</span>
-<span class="sd"> */</span>
-<span class="k">function</span> <span class="nf">awesome_blocks_install</span><span class="p">()</span> <span class="p">{</span>
-  <span class="nv">$block_content</span> <span class="o">=</span> <span class="nx">BlockContent</span><span class="o">::</span><span class="na">create</span><span class="p">([</span>
-    <span class="s1">&#39;type&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;basic&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;info&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;About us&#39;</span><span class="p">,</span>
-  <span class="p">]);</span>
-  <span class="nv">$block_content</span><span class="o">-&gt;</span><span class="na">set</span><span class="p">(</span><span class="s1">&#39;body&#39;</span><span class="p">,</span> <span class="s1">&#39;Some long text about us...&#39;</span><span class="p">);</span>
-  <span class="nv">$block_content</span><span class="o">-&gt;</span><span class="na">save</span><span class="p">();</span>
-
-  <span class="nv">$block</span> <span class="o">=</span> <span class="nx">Block</span><span class="o">::</span><span class="na">create</span><span class="p">([</span>
-    <span class="s1">&#39;id&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;about_us&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;plugin&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;block_content:&#39;</span> <span class="o">.</span> <span class="nv">$block_content</span><span class="o">-&gt;</span><span class="na">uuid</span><span class="p">(),</span>
-    <span class="s1">&#39;region&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;header&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;provider&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;block_content&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;weight&#39;</span> <span class="o">=&gt;</span> <span class="o">-</span><span class="mi">100</span><span class="p">,</span>
-    <span class="s1">&#39;theme&#39;</span> <span class="o">=&gt;</span> <span class="nx">\Drupal</span><span class="o">::</span><span class="na">config</span><span class="p">(</span><span class="s1">&#39;system.theme&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">),</span>
-    <span class="s1">&#39;visibility&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(),</span>
-    <span class="s1">&#39;settings&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
-      <span class="s1">&#39;label&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;About us&#39;</span><span class="p">,</span>
-      <span class="s1">&#39;label_display&#39;</span> <span class="o">=&gt;</span> <span class="k">FALSE</span><span class="p">,</span>
-    <span class="p">],</span>
-  <span class="p">]);</span>
-  <span class="nv">$block</span><span class="o">-&gt;</span><span class="na">save</span><span class="p">();</span>
-<span class="p">}</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-php" data-lang="php"><span class="lineno"> 1</span> <span class="cp">&lt;?php</span>
+<span class="lineno"> 2</span> 
+<span class="lineno"> 3</span> <span class="k">use</span> <span class="nx">Drupal\block\Entity\Block</span><span class="p">;</span>
+<span class="lineno"> 4</span> <span class="k">use</span> <span class="nx">Drupal\block_content\Entity\BlockContent</span><span class="p">;</span>
+<span class="lineno"> 5</span> 
+<span class="lineno"> 6</span> <span class="sd">/**</span>
+<span class="lineno"> 7</span> <span class="sd"> * Implements hook_install().</span>
+<span class="lineno"> 8</span> <span class="sd"> */</span>
+<span class="lineno"> 9</span> <span class="k">function</span> <span class="nf">awesome_blocks_install</span><span class="p">()</span> <span class="p">{</span>
+<span class="lineno">10</span>   <span class="nv">$block_content</span> <span class="o">=</span> <span class="nx">BlockContent</span><span class="o">::</span><span class="na">create</span><span class="p">([</span>
+<span class="lineno">11</span>     <span class="s1">&#39;type&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;basic&#39;</span><span class="p">,</span>
+<span class="lineno">12</span>     <span class="s1">&#39;info&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;About us&#39;</span><span class="p">,</span>
+<span class="lineno">13</span>   <span class="p">]);</span>
+<span class="lineno">14</span>   <span class="nv">$block_content</span><span class="o">-&gt;</span><span class="na">set</span><span class="p">(</span><span class="s1">&#39;body&#39;</span><span class="p">,</span> <span class="s1">&#39;Some long text about us...&#39;</span><span class="p">);</span>
+<span class="lineno">15</span>   <span class="nv">$block_content</span><span class="o">-&gt;</span><span class="na">save</span><span class="p">();</span>
+<span class="lineno">16</span> 
+<span class="lineno">17</span>   <span class="nv">$block</span> <span class="o">=</span> <span class="nx">Block</span><span class="o">::</span><span class="na">create</span><span class="p">([</span>
+<span class="lineno">18</span>     <span class="s1">&#39;id&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;about_us&#39;</span><span class="p">,</span>
+<span class="lineno">19</span>     <span class="s1">&#39;plugin&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;block_content:&#39;</span> <span class="o">.</span> <span class="nv">$block_content</span><span class="o">-&gt;</span><span class="na">uuid</span><span class="p">(),</span>
+<span class="lineno">20</span>     <span class="s1">&#39;region&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;header&#39;</span><span class="p">,</span>
+<span class="lineno">21</span>     <span class="s1">&#39;provider&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;block_content&#39;</span><span class="p">,</span>
+<span class="lineno">22</span>     <span class="s1">&#39;weight&#39;</span> <span class="o">=&gt;</span> <span class="o">-</span><span class="mi">100</span><span class="p">,</span>
+<span class="lineno">23</span>     <span class="s1">&#39;theme&#39;</span> <span class="o">=&gt;</span> <span class="nx">\Drupal</span><span class="o">::</span><span class="na">config</span><span class="p">(</span><span class="s1">&#39;system.theme&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">),</span>
+<span class="lineno">24</span>     <span class="s1">&#39;visibility&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(),</span>
+<span class="lineno">25</span>     <span class="s1">&#39;settings&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+<span class="lineno">26</span>       <span class="s1">&#39;label&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;About us&#39;</span><span class="p">,</span>
+<span class="lineno">27</span>       <span class="s1">&#39;label_display&#39;</span> <span class="o">=&gt;</span> <span class="k">FALSE</span><span class="p">,</span>
+<span class="lineno">28</span>     <span class="p">],</span>
+<span class="lineno">29</span>   <span class="p">]);</span>
+<span class="lineno">30</span>   <span class="nv">$block</span><span class="o">-&gt;</span><span class="na">save</span><span class="p">();</span>
+<span class="lineno">31</span> <span class="p">}</span></code></pre></figure>
 
 <p>Now you just need to put this code into your module’s .install file and enable it. Enjoy :)</p>
 
