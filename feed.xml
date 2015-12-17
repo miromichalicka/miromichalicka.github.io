@@ -5,9 +5,76 @@
     <description>Drupal and travelling</description>
     <link>http://yourdomain.com/</link>
     <atom:link href="http://yourdomain.com/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Tue, 08 Dec 2015 16:14:13 +0100</pubDate>
-    <lastBuildDate>Tue, 08 Dec 2015 16:14:13 +0100</lastBuildDate>
+    <pubDate>Thu, 17 Dec 2015 10:13:44 +0100</pubDate>
+    <lastBuildDate>Thu, 17 Dec 2015 10:13:44 +0100</lastBuildDate>
     <generator>Jekyll v3.0.0</generator>
+    
+      <item>
+        <title>Custom blocks in Drupal 8</title>
+        <description>&lt;p&gt;You have probably notices that CMI has some limitation in exporting custom blocks. These are unfortunately quite important for Front enders and also for client. Let me show you, how you can simply create custom blocks in code during installation of your module.&lt;/p&gt;
+
+&lt;p&gt;If you are reading this blog, I assume you know that blocks are finally entities in Drupal 8. You can define your own block type and add some fields into it. For simple demonstration I’m using predefined custom block type Basic block with body text field. Same approach can be of course used for your custom block types with many additional fiels.&lt;/p&gt;
+
+&lt;p&gt;First you need to create Custom block:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-php&quot; data-lang=&quot;php&quot;&gt;&lt;span class=&quot;lineno&quot;&gt; 1&lt;/span&gt; &lt;span class=&quot;cp&quot;&gt;&amp;lt;?php&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 2&lt;/span&gt; 
+&lt;span class=&quot;lineno&quot;&gt; 3&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;use&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Drupal\block_content\Entity\BlockContent&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 4&lt;/span&gt; 
+&lt;span class=&quot;lineno&quot;&gt; 5&lt;/span&gt; &lt;span class=&quot;sd&quot;&gt;/**&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 6&lt;/span&gt; &lt;span class=&quot;sd&quot;&gt; * Implements hook_install().&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 7&lt;/span&gt; &lt;span class=&quot;sd&quot;&gt; */&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 8&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;awesome_blocks_install&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 9&lt;/span&gt;   &lt;span class=&quot;nv&quot;&gt;$block_content&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;BlockContent&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;create&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;10&lt;/span&gt;     &lt;span class=&quot;s1&quot;&gt;&amp;#39;type&amp;#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;basic&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;11&lt;/span&gt;     &lt;span class=&quot;s1&quot;&gt;&amp;#39;info&amp;#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;About us&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;12&lt;/span&gt;   &lt;span class=&quot;p&quot;&gt;]);&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;13&lt;/span&gt;   &lt;span class=&quot;nv&quot;&gt;$block_content&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;body&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;Some long text about us...&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;14&lt;/span&gt;   &lt;span class=&quot;nv&quot;&gt;$block_content&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;save&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;15&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;If you install your module now, you can find this block in &lt;a href=&quot;http://your-domain.tld/admin/structure/block/block-content/types&quot;&gt;Custom block library&lt;/a&gt;. You can update all fields which is big change since Drupal 7, but you still need to show your block somewhere on page. Because block are entities, they can be displayed multiple times. You need to create block instance which can be placed into region and visibility settings can be applied. &lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-php&quot; data-lang=&quot;php&quot;&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?php&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;use&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Drupal\block\Entity\Block&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;use&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Drupal\block_content\Entity\BlockContent&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;sd&quot;&gt;/**&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt; * Implements hook_install().&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt; */&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;awesome_blocks_install&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nv&quot;&gt;$block_content&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;BlockContent&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;create&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;
+    &lt;span class=&quot;s1&quot;&gt;&amp;#39;type&amp;#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;basic&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;s1&quot;&gt;&amp;#39;info&amp;#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;About us&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;]);&lt;/span&gt;
+  &lt;span class=&quot;nv&quot;&gt;$block_content&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;body&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;Some long text about us...&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;nv&quot;&gt;$block_content&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;save&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+
+  &lt;span class=&quot;nv&quot;&gt;$block&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Block&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;create&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;
+    &lt;span class=&quot;s1&quot;&gt;&amp;#39;id&amp;#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;about_us&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;s1&quot;&gt;&amp;#39;plugin&amp;#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;block_content:&amp;#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$block_content&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;uuid&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(),&lt;/span&gt;
+    &lt;span class=&quot;s1&quot;&gt;&amp;#39;region&amp;#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;header&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;s1&quot;&gt;&amp;#39;provider&amp;#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;block_content&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;s1&quot;&gt;&amp;#39;weight&amp;#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;s1&quot;&gt;&amp;#39;theme&amp;#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;\Drupal&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;system.theme&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;default&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+    &lt;span class=&quot;s1&quot;&gt;&amp;#39;visibility&amp;#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(),&lt;/span&gt;
+    &lt;span class=&quot;s1&quot;&gt;&amp;#39;settings&amp;#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
+      &lt;span class=&quot;s1&quot;&gt;&amp;#39;label&amp;#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;About us&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;s1&quot;&gt;&amp;#39;label_display&amp;#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;FALSE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;]);&lt;/span&gt;
+  &lt;span class=&quot;nv&quot;&gt;$block&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;save&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Now you just need to put this code into your module’s .install file and enable it. Enjoy :)&lt;/p&gt;
+</description>
+        <pubDate>Thu, 17 Dec 2015 08:00:00 +0100</pubDate>
+        <link>http://yourdomain.com/2015/12/17/custom-blocks/</link>
+        <guid isPermaLink="true">http://yourdomain.com/2015/12/17/custom-blocks/</guid>
+        
+        
+      </item>
     
       <item>
         <title>Twig inside Views in Drupal 8</title>
