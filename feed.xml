@@ -3,10 +3,10 @@
   <channel>
     <title>Miro Michalicka</title>
     <description>Drupal and travelling</description>
-    <link>http://yourdomain.com/</link>
-    <atom:link href="http://yourdomain.com/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Thu, 17 Dec 2015 10:16:22 +0100</pubDate>
-    <lastBuildDate>Thu, 17 Dec 2015 10:16:22 +0100</lastBuildDate>
+    <link>http://miromichalicka.com/</link>
+    <atom:link href="http://miromichalicka.com/feed.xml" rel="self" type="application/rss+xml" />
+    <pubDate>Fri, 18 Dec 2015 18:50:05 +0100</pubDate>
+    <lastBuildDate>Fri, 18 Dec 2015 18:50:05 +0100</lastBuildDate>
     <generator>Jekyll v3.0.0</generator>
     
       <item>
@@ -70,8 +70,8 @@
 &lt;p&gt;Now you just need to put this code into your module’s .install file and enable it. Enjoy :)&lt;/p&gt;
 </description>
         <pubDate>Thu, 17 Dec 2015 08:00:00 +0100</pubDate>
-        <link>http://yourdomain.com/2015/12/17/custom-blocks/</link>
-        <guid isPermaLink="true">http://yourdomain.com/2015/12/17/custom-blocks/</guid>
+        <link>http://miromichalicka.com/2015/12/17/custom-blocks/</link>
+        <guid isPermaLink="true">http://miromichalicka.com/2015/12/17/custom-blocks/</guid>
         
         
       </item>
@@ -112,8 +112,8 @@
 &lt;p&gt;Twig makes Frontender’s life easier. I’m not saying that we should do everything possible only through UI, as I see there many risks related to harder debugging. Practical use on projects will show us the best way. &lt;/p&gt;
 </description>
         <pubDate>Mon, 07 Dec 2015 08:00:00 +0100</pubDate>
-        <link>http://yourdomain.com/2015/12/07/views-twig/</link>
-        <guid isPermaLink="true">http://yourdomain.com/2015/12/07/views-twig/</guid>
+        <link>http://miromichalicka.com/2015/12/07/views-twig/</link>
+        <guid isPermaLink="true">http://miromichalicka.com/2015/12/07/views-twig/</guid>
         
         
       </item>
@@ -164,8 +164,8 @@
 &lt;p&gt;In iKOS we decided to carry on with core CMI for now. I’m personally playing with ideas of using Config Devel or Features. I’m sad that CMI fulfilled just half of developers needs. It doesn’t help with work in team unless you make some compromises or “hacks”. It does great job with multi-environment development of same site. I hope missing features will be added in early life phases of Drupal 8.&lt;/p&gt;
 </description>
         <pubDate>Fri, 06 Nov 2015 11:00:00 +0100</pubDate>
-        <link>http://yourdomain.com/2015/11/06/configuration-d8/</link>
-        <guid isPermaLink="true">http://yourdomain.com/2015/11/06/configuration-d8/</guid>
+        <link>http://miromichalicka.com/2015/11/06/configuration-d8/</link>
+        <guid isPermaLink="true">http://miromichalicka.com/2015/11/06/configuration-d8/</guid>
         
         
       </item>
@@ -219,8 +219,8 @@
 &lt;p&gt;&lt;em&gt;Originally published on: &lt;a href=&quot;http://i-kos.com/developing/blog/2015-08-11/drupalcampcs-2015-bratislava-our-report-great-drupal-community-event&quot;&gt;http://i-kos.com/developing/blog/2015-08-11/drupalcampcs-2015-bratislava-our-report-great-drupal-community-event&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
 </description>
         <pubDate>Mon, 07 Sep 2015 14:00:00 +0200</pubDate>
-        <link>http://yourdomain.com/2015/09/07/how-was-dccs-2015/</link>
-        <guid isPermaLink="true">http://yourdomain.com/2015/09/07/how-was-dccs-2015/</guid>
+        <link>http://miromichalicka.com/2015/09/07/how-was-dccs-2015/</link>
+        <guid isPermaLink="true">http://miromichalicka.com/2015/09/07/how-was-dccs-2015/</guid>
         
         
       </item>
@@ -266,8 +266,8 @@
 &lt;p&gt;In the end of event, I can say, that I’ve learned a lot of new things and I’ve spoken with many wise people. It is nice to see community working together to solve remaining issues in Drupal 8. It will be great tool changing clear water of CMS world. I am looking forward to trying it in my first client project.&lt;/p&gt;
 </description>
         <pubDate>Tue, 11 Aug 2015 00:00:00 +0200</pubDate>
-        <link>http://yourdomain.com/2015/08/11/drupalaton-2015/</link>
-        <guid isPermaLink="true">http://yourdomain.com/2015/08/11/drupalaton-2015/</guid>
+        <link>http://miromichalicka.com/2015/08/11/drupalaton-2015/</link>
+        <guid isPermaLink="true">http://miromichalicka.com/2015/08/11/drupalaton-2015/</guid>
         
         
       </item>
